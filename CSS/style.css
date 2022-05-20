@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*elementos do projeto nao passem do limite do elemento pai */
+    font-family: Helvetica;
+}
+
+body {
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+#calc {
+    width: 400px;
+    padding: 0.5rem;
+    background-color: #c4c4c4;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+#calc h3 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #667;
+}
+
+#operations {
+    text-align: right;
+}
+
+#previous-operation,
+#current-operation {
+    min-height: 1.6rem;
+    padding: 0.2rem;
+    overflow-wrap: break-word; /*ele vai quebrar linha e ficar denntro da div*/
+}
+
+#previous-operation {
+    color: #777;
+}
+
+#current-operation {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+#buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3px;
+}
+
+#buttons-container button {
+    border: 1px solid transparent;
+    border-radius: 0;
+    height: 4rem;
+    font-size: 1.2rem;
+    background-color: #dbdbdb;
+    cursor: pointer;
+}
+
+#buttons-container .number {
+    background-color: #f3f3f3;
+}
+
+#buttons-container button:hover {
+    background-color: #bababa;
+    border-color: #999;
+}
+
+#buttons-container #igual-btn {
+    grid-column: span 2; /*para o botao ocupar duas colunas do grid*/
+    background-color: #75a5cb;
+}
+
+#buttons-container #igual-btn:hover {
+    background-color: #3a91d8;
+}
+
