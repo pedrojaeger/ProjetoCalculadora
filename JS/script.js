@@ -32,6 +32,13 @@ class Calculator {
             }
             return;
         }
+        
+        //Checa se o operação atual e anterior está vazio
+        if (this.currentOperationText.innerText !== "" && this.previousOperationText.innerText !=="") {
+            console.log("change operation 2")
+            this.changeOperation2(operation);
+            return;
+          }
 
         //Pega valores atuais (current) e anteriores (previous)
         let operationValue;
@@ -110,6 +117,49 @@ class Calculator {
 
         this.previousOperationText.innerText = this.previousOperationText.innerText.slice(0, -1) + operation
     }
+
+  
+    // Change math operation==================================================
+  changeOperation2(operation) {
+    
+    let previousOperation = this.previousOperationText.innerText.split(" ")[1];
+    let operationValue;
+    let previous = +this.previousOperationText.innerText.split(" ")[0];
+    let current = +this.currentOperationText.innerText;
+
+    switch (previousOperation) {
+      case "+":
+        operationValue = previous + current;
+        this.updateScreen(operationValue, operation, current, previous);
+        break;
+      case "-":
+        operationValue = previous - current;
+        this.updateScreen(operationValue, operation, current, previous);
+        break;
+      case "*":
+        operationValue = previous * current;
+        this.updateScreen(operationValue, operation, current, previous);
+        break;
+      case "/":
+        operationValue = previous / current;
+        this.updateScreen(operationValue, operation, current, previous);
+        break;
+      case "DEL":
+        this.processDelOperator();
+        break;
+      case "CE":
+        this.processClearCurrentOperator();
+        break;
+      case "C":
+        this.processClearOperator();
+        break;
+      case "=":
+        this.processEqualOperator();
+        break;
+      default:
+        return;
+    }
+  }
 
 
     //DEL - deleta o ultimo digito
